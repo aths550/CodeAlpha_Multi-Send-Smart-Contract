@@ -1,8 +1,10 @@
 # CodeAlpha_Multi-Send-Smart-Contract
 CodeAlpha Internship Task 2
-Source Code- // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.0;
-contract MultiSend {
+Source Code- 
+      
+      // SPDX-License-Identifier: MIT
+    pragma solidity ^0.8.0;
+    contract MultiSend {
     function multiSend(address[] calldata recipients) external payable {
         uint256 totalRecipients = recipients.length;
         require(totalRecipients > 0, "No recipients provided");
@@ -12,5 +14,5 @@ contract MultiSend {
             (bool success, ) = recipients[i].call{value: amountPerRecipient}("");
             require(success, "Transfer failed");
         }
+      }
     }
-}
